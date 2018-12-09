@@ -1,0 +1,11 @@
+---
+- hosts:  all
+  vars:
+    - lists:  
+        - /root/file1
+        - /root/file2
+  tasks:  
+    - copy: 
+        src:  '{{ item }}'
+        dest: /root/
+      with_items: '{{ lists }}'
